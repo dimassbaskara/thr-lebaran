@@ -1,0 +1,60 @@
+.sticky-note {
+  position: relative;
+  border-radius: 2px 12px 12px 2px;
+  padding: 20px 16px 16px;
+  box-shadow: var(--shadow-note);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 130px;
+  break-inside: avoid;
+  transition: box-shadow 0.2s;
+  transform: rotate(var(--rotate, 0deg));
+  will-change: transform;
+}
+
+/* Tape effect di atas note */
+.note-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 18px;
+  background: rgba(212, 160, 23, 0.35);
+  border-radius: 3px;
+  backdrop-filter: blur(2px);
+}
+.note-tape::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 3px;
+  border: 1px solid rgba(212, 160, 23, 0.4);
+}
+
+.note-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(45, 106, 79, 0.25);
+  font-family: var(--font-body);
+}
+
+.note-message {
+  font-size: 13px;
+  color: var(--color-text-dark);
+  line-height: 1.65;
+  flex: 1;
+  font-family: var(--font-body);
+  word-break: break-word;
+}
+
+.note-time {
+  font-size: 10px;
+  color: var(--color-text-light);
+  align-self: flex-end;
+  letter-spacing: 0.3px;
+}

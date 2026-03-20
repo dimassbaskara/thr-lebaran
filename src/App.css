@@ -1,0 +1,19 @@
+/* App.css — global app-level extras */
+
+/* Smooth inter-section scroll */
+.app-container {
+  scroll-snap-type: none;
+}
+
+/* Section transitions */
+.app-container > * {
+  position: relative;
+}
+
+/* Thin gold top accent bar */
+.app-container::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
+}

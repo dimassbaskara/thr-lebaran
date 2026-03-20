@@ -1,0 +1,248 @@
+.thr-section {
+  background: linear-gradient(180deg, #f5f0e8 0%, #eaf4ec 60%, #ddf0e4 100%);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thr-bg-ornament {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.thr-bg-ornament svg {
+  width: 100%;
+  height: 100%;
+}
+
+.thr-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ ENVELOPE ============ */
+.envelope-wrapper {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  width: 100%;
+  max-width: 280px;
+  user-select: none;
+}
+.envelope-wrapper.opened {
+  cursor: default;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  padding-top: 70%; /* aspect ratio */
+  filter: drop-shadow(0 8px 24px rgba(45, 106, 79, 0.2));
+}
+
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2d6a4f, #40916c);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 600px;
+}
+
+.env-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.08) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+/* Flap (lid) */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+.flap-inner {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #1b4332 0%, #2d6a4f 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* Wax seal */
+.flap-seal {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+
+/* Corner triangles decorative */
+.envelope-left-corner,
+.envelope-right-corner,
+.envelope-bottom-corner {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.envelope-left-corner {
+  left: 0;
+  border-left: 140px solid transparent;
+  border-bottom: 90px solid rgba(0,0,0,0.15);
+}
+.envelope-right-corner {
+  right: 0;
+  border-right: 140px solid transparent;
+  border-bottom: 90px solid rgba(0,0,0,0.1);
+}
+.envelope-bottom-corner {
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 70px solid rgba(0,0,0,0.08);
+}
+
+.envelope-hint {
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.envelope-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  z-index: 1;
+  position: relative;
+  margin-top: 20px;
+}
+.money-emoji {
+  font-size: 32px;
+  animation: bounce 1s ease infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.env-greeting {
+  font-size: 11px;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ============ CTA ============ */
+.thr-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.cta-label {
+  font-size: 13px;
+  color: var(--color-text-mid);
+  font-weight: 500;
+}
+
+.gopay-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 28px;
+  background: linear-gradient(135deg, #00ae5b, #00c466);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0, 174, 91, 0.35);
+  transition: all 0.3s ease;
+  min-width: 220px;
+  justify-content: center;
+}
+.gopay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 174, 91, 0.45);
+}
+.gopay-logo {
+  height: 22px;
+  filter: brightness(0) invert(1);
+  object-fit: contain;
+}
+.arrow-icon {
+  font-size: 18px;
+  margin-left: 2px;
+}
+
+.cta-note {
+  font-size: 11px;
+  color: var(--color-text-light);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============ FOOTER ============ */
+.thr-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.footer-text {
+  font-size: 13px;
+  color: var(--color-text-mid);
+  font-family: var(--font-display);
+  font-style: italic;
+  text-align: center;
+}
+.footer-sub {
+  font-size: 11px;
+  color: var(--color-text-light);
+}
