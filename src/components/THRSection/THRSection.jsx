@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './THRSection.css'
 
-const GOPAY_LINK = 'https://app.gopay.co.id/NF8p/rtwwash3'
+const GOPAY_LINK = 'https://app.gopay.co.id/NF8p/gbm3mh3u'
 
 export default function THRSection() {
   const [opened, setOpened] = useState(false)
